@@ -1,4 +1,4 @@
-# ReciclApp
+# Eco Clasificador
 
 Cuenta botellas con la cámara, una foto o un video, las guarda en un inventario de este navegador y busca basureros y puntos de reciclaje cerca. Las imágenes no salen del dispositivo.
 

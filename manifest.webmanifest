@@ -1,6 +1,6 @@
 {
-  "name": "ReciclApp",
-  "short_name": "ReciclApp",
+  "name": "Eco Clasificador",
+  "short_name": "Eco Clasif.",
   "description": "Cuenta botellas, guarda un inventario en tu navegador y busca puntos de reciclaje.",
   "start_url": "./",
   "scope": "./",

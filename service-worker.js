@@ -1,5 +1,5 @@
 // Cachea la app para que cargue sin conexión. El modelo y el mapa sí necesitan internet.
-const VERSION = 'reciclaapp-v1';
+const VERSION = 'eco-clasificador-v2';
 const ARCHIVOS = [
   './', 'index.html', 'styles.css', 'manifest.webmanifest',
   'js/inventario.js', 'js/detector.js', 'js/mapa.js', 'assets/icono.svg'
