@@ -42,4 +42,4 @@ assets/icono.svg      icono
 
 ## Autor
 
-TU NOMBRE AQUÍ
+Adelia Camila Taceo

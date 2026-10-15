@@ -1,7 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <rect width="512" height="512" rx="110" fill="#cfe8b0"/>
-  <path d="M226 70h60v54l28 40v230a40 40 0 0 1-40 40h-36a40 40 0 0 1-40-40V164l28-40z" fill="#2e9e4f"/>
-  <rect x="226" y="52" width="60" height="26" rx="8" fill="#1c2b1f"/>
-  <rect x="214" y="250" width="84" height="90" rx="8" fill="#fff" opacity=".85"/>
-  <path d="M256 262l20 34h-40zM240 318l20-34 20 34z" fill="#2e9e4f"/>
+  <rect width="512" height="512" rx="110" fill="#14532d"/>
+  <g stroke="#bbf7d0" stroke-width="26" stroke-linecap="round" fill="none">
+    <path d="M96.3 197.9A170 170 0 0 1 386.2 146.7"/>
+    <path d="M415.7 314.1A170 170 0 0 1 125.8 365.3"/>
+  </g>
+  <g fill="#bbf7d0">
+    <path d="M404.2 168.2L403.1 132.6L369.3 160.8z"/>
+    <path d="M107.8 343.9L108.9 379.4L142.7 351.2z"/>
+  </g>
+  <path d="M256 150C330 180 340 280 256 362C172 280 182 180 256 150z" fill="#4ade80"/>
+  <g stroke="#14532d" stroke-width="10" stroke-linecap="round" fill="none">
+    <path d="M256 180V340"/>
+    <path d="M256 245L288 220M256 285L288 260M256 245L224 220M256 285L224 260"/>
+  </g>
 </svg>

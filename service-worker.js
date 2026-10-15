@@ -1,8 +1,9 @@
 // Cachea la app para que cargue sin conexión. El modelo y el mapa sí necesitan internet.
-const VERSION = 'eco-clasificador-v2';
+const VERSION = 'eco-clasificador-v3';
 const ARCHIVOS = [
   './', 'index.html', 'styles.css', 'manifest.webmanifest',
-  'js/inventario.js', 'js/detector.js', 'js/mapa.js', 'assets/icono.svg'
+  'js/inventario.js', 'js/detector.js', 'js/mapa.js', 'assets/icono.svg',
+  'assets/icono-192.png', 'assets/icono-512.png'
 ];
 
 self.addEventListener('install', e => {
