@@ -1,0 +1,13 @@
+{
+  "name": "ReciclApp",
+  "short_name": "ReciclApp",
+  "description": "Cuenta botellas, guarda un inventario en tu navegador y busca puntos de reciclaje.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f6fbef",
+  "theme_color": "#cfe8b0",
+  "icons": [
+    { "src": "assets/icono.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

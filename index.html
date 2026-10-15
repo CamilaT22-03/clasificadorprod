@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>ReciclApp — Contador de botellas</title>
+  <meta name="description" content="Cuenta botellas con un detector local, guarda un inventario en tu navegador y busca puntos de reciclaje cerca.">
+  <meta name="theme-color" content="#cfe8b0">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/icono.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="#"><img src="assets/icono.svg" alt="" width="32" height="32"> ReciclApp</a>
+    <nav>
+      <a href="#clasificador">Jugar</a>
+      <a href="#mapa">Mapa</a>
+      <button id="btn-instalar" hidden>Instalar</button>
+    </nav>
+    <div class="total" title="Botellas guardadas"><span id="total-top">0</span></div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="kicker">Misión de reciclaje</p>
+      <h1>Caza la botella y súmala al marcador</h1>
+      <p>Cámara, foto o video. Si salen dos botellas, entran las dos. La misma no se cuenta dos veces.</p>
+      <a class="btn" href="#clasificador">A jugar</a>
+    </section>
+
+    <section id="clasificador" class="card">
+      <h2>¿Cuántas botellas salen?</h2>
+      <div class="stage">
+        <video id="video" playsinline muted hidden></video>
+        <img id="foto" alt="Imagen seleccionada" hidden>
+        <canvas id="overlay"></canvas>
+        <p id="placeholder">Tu toma aparecerá aquí</p>
+      </div>
+      <div class="controls">
+        <button id="btn-camara">Cámara</button>
+        <label class="btn-file">Foto <input id="in-foto" type="file" accept="image/jpeg,image/png,image/webp,image/gif" hidden></label>
+        <label class="btn-file">Video <input id="in-video" type="file" accept="video/mp4,video/webm,video/quicktime" hidden></label>
+        <button id="btn-registrar">Registrar ahora</button>
+        <button id="btn-nueva">Nueva toma</button>
+      </div>
+      <p id="estado" role="status">Preparando el modelo…</p>
+      <p class="stats">En vista: <b id="n-vista">0</b> · En esta toma: <b id="n-toma">0</b></p>
+      <p class="aviso">Tus imágenes no salen del dispositivo. Solo se guarda fecha, cantidad, confianza y cajas. La IA puede fallar con imágenes oscuras o borrosas; bajo 60 % de confianza se marca como poco seguro.</p>
+    </section>
+
+    <section id="inventario" class="card">
+      <h2>Inventario <small id="total-inv">0 botellas</small></h2>
+      <div class="controls">
+        <button id="btn-json">Descargar JSON</button>
+        <button id="btn-csv">Descargar CSV</button>
+        <button id="btn-vaciar" class="peligro">Vaciar todo</button>
+      </div>
+      <table>
+        <thead><tr><th>Registro</th><th>Confianza</th><th>Cant.</th><th></th></tr></thead>
+        <tbody id="tabla"></tbody>
+      </table>
+      <p id="vacio">Todavía no hay registros.</p>
+    </section>
+
+    <section id="mapa" class="card">
+      <h2>Busca un basurero</h2>
+      <div class="controls">
+        <button id="btn-ubicacion">Mi ubicación</button>
+        <form id="form-ciudad">
+          <input id="in-ciudad" type="text" placeholder="Ciudad o dirección" aria-label="Ciudad o dirección">
+          <button type="submit">Buscar</button>
+        </form>
+      </div>
+      <p id="estado-mapa" role="status">Todavía no hay una búsqueda.</p>
+      <div id="map"></div>
+      <ul class="leyenda">
+        <li><i style="background:#f2b705"></i> Basurero</li>
+        <li><i style="background:#2e9e4f"></i> Contenedor</li>
+        <li><i style="background:#2f7fd1"></i> Reciclaje</li>
+      </ul>
+      <p class="aviso">La búsqueda del mapa usa internet (OpenStreetMap). Tus fotos no se envían.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p><b>ReciclApp</b> · TU NOMBRE AQUÍ · Proyecto de aula</p>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd@2.2.3"></script>
+  <script src="js/inventario.js"></script>
+  <script src="js/detector.js"></script>
+  <script src="js/mapa.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) navigator.serviceWorker.register('service-worker.js');
+    let prompt_;
+    addEventListener('beforeinstallprompt', e => {
+      e.preventDefault(); prompt_ = e;
+      const b = document.getElementById('btn-instalar');
+      b.hidden = false; b.onclick = () => prompt_.prompt();
+    });
+  </script>
+</body>
+</html>
